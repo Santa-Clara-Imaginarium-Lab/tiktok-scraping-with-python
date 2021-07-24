@@ -1,5 +1,5 @@
-#tiktok-scraping-with-python
+# tiktok-scraping-with-python
 
 <p align="center">
-    <img src="https://i.ytimg.com/vi/7AAwtCR7f4w/maxresdefault.jpgved=0CAsQjRxqFwoTCJCuioiZ-_ECFQAAAAAdAAAAABAW">
+    <img src="https://www.xbyte.io/images/services/tiktok/Tiktok-Data-Collection-with-Tiktok-API.jpg">
 </p>
