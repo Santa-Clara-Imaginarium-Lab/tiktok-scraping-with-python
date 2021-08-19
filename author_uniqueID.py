@@ -18,16 +18,21 @@ trending_rank = []
 trending_nicknames = []
 trending_avatars = []
 trending_signature = []
-trending_verified = []
+trending_verified = [] 
+trending_privateAccount = []
 
-for tiktok in tiktoks:
+for tiktok in tiktoks: 
     trending_rank.append(tiktok["author"]["uniqueId"])
     trending_nicknames.append(tiktok["author"]["nickname"])
     trending_avatars.append(tiktok["author"]["avatarThumb"])
     trending_signature.append(tiktok["author"]["signature"])
     trending_verified.append(tiktok["author"]["verified"])
+    trending_privateAccount.append(tiktok["author"]["privateAccount"])
 
-df = pd.DataFrame({"Author Unique ID": trending_rank, "Author Nickname": trending_nicknames, "Avatar Thumbnail": trending_avatars, "Signature": trending_signature, "Verified?": trending_verified})   
+    """ other data points in tiktok dictionary (via trending method) are: id, avatarMedium, avatarLarger, secUid, secret, 
+    ftc, relation, opoenFavorite, commentSetting, duetSetting, and stitchSetting but just have these ones for now"""
+
+df = pd.DataFrame({"Author Unique ID": trending_rank, "Author Nickname": trending_nicknames, "Avatar Thumbnail": trending_avatars, "Signature": trending_signature, "Verified?": trending_verified, "Private Account?": trending_privateAccount})   
 df.to_csv("tiktok_test.csv")
 
 print("Success!")
