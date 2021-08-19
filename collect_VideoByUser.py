@@ -5,8 +5,10 @@ import pandas as pd
 # THe "user_videos" object is now a list of 100 video dictionaries and only a few stats will be relevant which can be extracted with following function
  
 api = TikTokApi() 
+
+username = "tiktok"
   
-user_videos = api.byUsername(washingtonpost, count=100)
+user_videos = api.byUsername(username, count=100)
 
 def simple_dict(tiktok_dict):
   to_return = {}
@@ -29,3 +31,5 @@ def simple_dict(tiktok_dict):
 user_videos = [simple_dict(v) for v in user_videos]
 user_videos_df = pd.DataFrame(user_videos)
 user_videos_df.to_csv("{}_videos.csv".format(username),index=False)
+
+print("Success!")
