@@ -1,11 +1,10 @@
 from TikTokApi import TikTokApi
 import pandas as pd
 
-# collect videos from a given user. 
-# The "user_videos" object is now a list of 100 video dictionaries and only a few stats will be relevant which can be extracted with following function
+# collect videos liked by a given user.  
  
 username = "tiktok" 
-user_videos = TikTokApi().byUsername(username, count=100)
+liked_videos = TikTokApi().user_liked_by_username(username)
 
 def simple_dict(tiktok_dict):
   to_return = {}
@@ -23,10 +22,10 @@ def simple_dict(tiktok_dict):
 
   return to_return
 
-# Then, we can go from the API-outputted "user_videos" list to a nice, clean table
-
-user_videos = [simple_dict(v) for v in user_videos]
-user_videos_df = pd.DataFrame(user_videos)
-user_videos_df.to_csv("{}_videos.csv".format(username),index=False)
+# Then, we can go from the API-outputted "liked_videos" list to a nice, clean table
+ 
+liked_videos = [simple_dict(v) for v in liked_videos]
+liked_videos_df = pd.DataFrame(liked_videos)
+liked_videos_df.to_csv('{}_collected_liked_videos.csv'.format(username), index=False)
 
 print("Success!")

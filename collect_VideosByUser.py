@@ -1,10 +1,12 @@
-# for getting videos from TikTok's overall trending accounts
-
-from TikTokApi import TikTokApi 
+from TikTokApi import TikTokApi
 import pandas as pd 
 
-trending_videos = TikTokApi().trending()
-  
+username = "tiktok" 
+user_videos = TikTokApi().by_username(username)
+
+# collect videos from a given user. 
+# The "user_videos" object is now a list of video dictionaries and only a few stats will be relevant which can be extracted with following function
+
 def simple_dict(tiktok_dict):
   to_return = {}
   to_return["user_name"] = tiktok_dict["author"]["uniqueId"]
@@ -21,8 +23,10 @@ def simple_dict(tiktok_dict):
 
   return to_return
 
-trending_videos = [simple_dict(v) for v in trending_videos]
-trending_videos_df = pd.DataFrame(trending_videos)
-trending_videos_df.to_csv("trending_videos.csv", index=False)
+# Then, we can go from the API-outputted "user_videos" list to a nice, clean table
+
+user_videos = [simple_dict(v) for v in user_videos]
+user_videos_df = pd.DataFrame(user_videos)
+user_videos_df.to_csv("{}_collected_videos.csv".format(username),index=False)
 
 print("Success!")
