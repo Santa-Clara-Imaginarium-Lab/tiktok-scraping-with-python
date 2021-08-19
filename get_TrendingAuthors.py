@@ -11,7 +11,7 @@ import string
 dotenv_path = join(dirname(__file__), ".env")
 load_dotenv(dotenv_path) 
 
-api = TikTokApi.get_instance(custom_verifyFp=os.environ.get("verifyFp"), use_text_endpoints=True, device_id="".join(random.choice(string.digits) for num in range(19)))
+api = TikTokApi().get_instance(custom_verifyFp=os.environ.get("verifyFp"), use_text_endpoints=True, device_id="".join(random.choice(string.digits) for num in range(19)))
 
 tiktoks = api.trending()
 

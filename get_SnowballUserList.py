@@ -1,12 +1,21 @@
 from TikTokApi import TikTokApi
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv    
 
-tiktok_id = TikTokApi.get_user("tiktok")["userInfo"]["user"]["id"]
-suggested = TikTokApi.get_suggested_hashtags_by_id_crawler(startingId=tiktok_id) 
+dotenv_path = join(dirname(__file__), ".env")
+load_dotenv(dotenv_path) 
+
+api = TikTokApi().get_instance(use_text_endpoints=True, custom_verifyFp=os.environ.get("verifyFp")) 
+
+tiktok_id = api.get_user("tiktok")["userInfo"]["user"]["id"]
+suggested = api.get_suggested_hashtags_by_id_crawler(startingId=tiktok_id) 
 
 print(suggested)
 
-# getting this error hmmm
+# hmm keep getting this error
 
-"""TypeError: get_user() missing 1 required positional argument: 'username'"""
+"""TikTokApi.exceptions.TikTokCaptchaError: TikTok blocks this request displaying a Captcha
+Tip: Consider using a proxy or a custom_verifyFp as method parameters"""
 
 print("Success!")
