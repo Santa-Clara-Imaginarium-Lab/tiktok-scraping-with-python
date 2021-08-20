@@ -1,7 +1,7 @@
 from TikTokApi import TikTokApi
 import pandas as pd
 
-# collect videos liked by a given user.  
+# collect videos liked by a given user (that is the official tiktok account)  
  
 username = "tiktok" 
 liked_videos = TikTokApi().user_liked_by_username(username)

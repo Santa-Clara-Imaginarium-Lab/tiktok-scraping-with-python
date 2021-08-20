@@ -4,7 +4,7 @@ import pandas as pd
 username = "tiktok" 
 user_videos = TikTokApi().by_username(username)
 
-# collect videos from a given user. 
+# collect videos from a given user (that is the official tiktok account) which defaults to 30 
 # The "user_videos" object is now a list of video dictionaries and only a few stats will be relevant which can be extracted with following function
 
 def simple_dict(tiktok_dict):

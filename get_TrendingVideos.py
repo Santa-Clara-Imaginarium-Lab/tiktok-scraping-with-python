@@ -1,4 +1,4 @@
-# for getting videos from TikTok's overall trending accounts
+# for getting videos from TikTok's overall trending accounts (default is 30)
 
 from TikTokApi import TikTokApi 
 import pandas as pd 

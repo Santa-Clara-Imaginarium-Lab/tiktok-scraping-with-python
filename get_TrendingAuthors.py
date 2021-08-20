@@ -1,4 +1,4 @@
-# for getting trending author metadata
+# for getting trending authors (default is 30) metadata
 
 from TikTokApi import TikTokApi
 import os

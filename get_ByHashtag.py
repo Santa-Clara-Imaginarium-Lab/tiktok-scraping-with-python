@@ -1,4 +1,4 @@
-from TikTokApi import TikTokApi, tiktok 
+from TikTokApi import TikTokApi 
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv   
@@ -9,7 +9,7 @@ load_dotenv(dotenv_path)
 
 api = TikTokApi().get_instance(use_text_endpoints=True, custom_verifyFp=os.environ.get("verifyFp"))
 
-# get any amount of videos under the hashtag #funny
+# get any amount (default is 30) of videos under the hashtag #funny
  
 hash_tag_name = "funny"
 
