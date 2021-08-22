@@ -9,11 +9,11 @@ load_dotenv(dotenv_path)
 
 api = TikTokApi().get_instance(use_text_endpoints=True, custom_verifyFp=os.environ.get("verifyFp"))
 
-# get any amount (default is 30) of videos under the hashtag #funny
+# get any amount (default is 30) yet 100 is specified of videos under the hashtag #funny
  
 hash_tag_name = "funny"
 
-hash_tags = api.by_hashtag(hash_tag_name)
+hash_tags = api.by_hashtag(hash_tag_name, count=100)
 
 def simple_dict(tiktok_dict):
     to_return = {}

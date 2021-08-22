@@ -1,10 +1,10 @@
 from TikTokApi import TikTokApi
 import pandas as pd
 
-# collect videos liked by a given user (that is the official tiktok account) which defaults to 30
+# collect videos liked by a given user (that is the official tiktok account) which defaults to 30 yet 100 is specified
  
 username = "tiktok" 
-liked_videos = TikTokApi().user_liked_by_username(username)
+liked_videos = TikTokApi().user_liked_by_username(username, count=100)
 
 def simple_dict(tiktok_dict):
   to_return = {}

@@ -1,4 +1,4 @@
-# for getting trending authors (default is 30) metadata
+# for getting trending authors (default is 30) yet 100 is specified
 
 from TikTokApi import TikTokApi
 import os
@@ -13,7 +13,7 @@ load_dotenv(dotenv_path)
 
 api = TikTokApi().get_instance(custom_verifyFp=os.environ.get("verifyFp"), use_text_endpoints=True, device_id="".join(random.choice(string.digits) for num in range(19)))
 
-tiktoks = api.by_trending()
+tiktoks = api.by_trending(count=100)
 
 trending_rank = []
 trending_nicknames = []

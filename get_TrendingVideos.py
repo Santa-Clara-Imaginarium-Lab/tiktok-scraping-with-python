@@ -1,9 +1,9 @@
-# for getting videos from TikTok's overall trending accounts (default is 30)
+# for getting videos from TikTok's overall trending accounts (default is 30) yet 100 is specified
 
 from TikTokApi import TikTokApi 
 import pandas as pd 
 
-trending_videos = TikTokApi().trending()
+trending_videos = TikTokApi().by_trending(count=100)
   
 def simple_dict(tiktok_dict):
   to_return = {}
