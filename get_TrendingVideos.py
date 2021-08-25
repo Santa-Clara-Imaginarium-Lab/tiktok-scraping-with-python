@@ -3,7 +3,9 @@
 from TikTokApi import TikTokApi 
 import pandas as pd 
 
-trending_videos = TikTokApi().by_trending(count=100)
+api = TikTokApi().get_instance()
+device_id = api.generate_device_id()
+trending_videos = api.by_trending(count=100, custom_device=device_id)
   
 def simple_dict(tiktok_dict):
   to_return = {}
@@ -23,6 +25,6 @@ def simple_dict(tiktok_dict):
 
 trending_videos = [simple_dict(v) for v in trending_videos]
 trending_videos_df = pd.DataFrame(trending_videos)
-trending_videos_df.to_csv("trending_videos.csv", index=False)
+trending_videos_df.to_csv("trending_videos.csv", index=False) 
 
 print("Success!")
